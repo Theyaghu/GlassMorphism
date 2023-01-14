@@ -14,9 +14,7 @@ struct ContentView: View {
             
             LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.4), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.6) ]), startPoint: .topLeading, endPoint: .bottomTrailing)
             
-            PopupView()
-            
-            
+            PopView()
         }
         .edgesIgnoringSafeArea(.all)
     }
@@ -28,13 +26,15 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct PopupView: View {
+struct PopView: View {
     var body: some View {
         ZStack(alignment: .topLeading){
             Color.white.opacity(0.35)
                 .frame(width: 300, height: 400)
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0 , y: 10)
+                .blur(radius: 1)
+            
             VStack (alignment: .leading, spacing: 16){
                 Text("Theyaghu")
                     .font(.system(size: 25, weight: .bold, design: .rounded))
@@ -47,9 +47,6 @@ struct PopupView: View {
             .padding()
             .frame(width: 300, height: 400)
             .foregroundColor(Color.black.opacity(0.8))
-            
-            
-            
         }
     }
 }
